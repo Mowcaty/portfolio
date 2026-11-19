@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en" translate="no"><meta name="google" content="notranslate">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio.exe</title>
+<script>
+const NAME = `Mowcaty (file)`;
+
+const DRIVE = '';
+
+const LINKS = [
+  [`CCC`, 'https://www.castingcall.club/m/mowcaty'],
+  [`Discord: file_file_24211`, ''],
+  [`Email: justneed445@gmail.com`, '']
+];
+
+const T = {
+    en: {
+        bio: `Hi! I'm a voice actor and illustrator. I love creating characters with my voice and art.
+
+I can really get into character using my voice, and have a large voice range. I absolutely love illustrating characters, and especially creating unique styles and ideas.
+
+I am very open to new, quirky and experimental ideas. If you have any projects you’d like to work on, please do get in touch. I would love to work with you!
+
+Open <b>Voice Reel</b> to listen, or <b>My Drawings</b> to look around.`,
+        balT: `Welcome!`,
+        balM: `Open Voice Reel to listen or My Drawings to look around.`,
+        binmsg: `Cannot delete "Talent.exe": the file is too awesome and is being used by the whole internet.`,
+        art: `My Drawings`,
+        voice: `Voice Reel`,
+        about: `About Me`,
+        contact: `Contact`,
+        bin: `Recycle Bin`,
+        start: `start`,
+        back: `Back`,
+        tasks: `Folder Tasks`,
+        items: `items`,
+        drive: `Open Google Drive`,
+        off: `Shut Down`,
+        lang: `Language: Українська`,
+        ok: `OK`,
+        loading: `Loading...`,
+        fail: `Could not load the folder.`,
+        empty: `This folder is empty.`,
+        boot: `Click to start`,
+        safe: `It is now safe to close this tab.`,
+        again: `Click to restart`
+    },
+    uk: {
+        bio: `Привіт! Я актор озвучування та ілюстраторка. Мені дуже подобається створювати персонажів за допомогою свого голосу та мистецтва.
+
+Я вмію повністю вживатися в роль за допомогою голосу і маю широкий діапазон. Я просто обожнюю ілюструвати персонажів, а особливо створювати унікальні стилі та ідеї.
+
+Я дуже відкрита до нових, нестандартних та експериментальних ідей. Якщо у вас є проекти, над якими ви хотіли б попрацювати, будь ласка, зв’яжіться зі мною. Я з радістю попрацюю з вами!
+
+
+Відкрий <b>Озвучку</b>, щоб послухати, або <b>Мої малюнки</b>, щоб подивитись.`,
+        balT: `Вітаю!`,
+        balM: `Відкрий Озвучку, щоб послухати, або Мої малюнки, щоб подивитись.`,
+        binmsg: `Неможливо видалити "Talent.exe": файл надто крутий і його використовує весь інтернет.`,
+        art: `Мої малюнки`,
+        voice: `Озвучка`,
+        about: `Про мене`,
+        contact: `Контакти`,
+        bin: `Кошик`,
+        start: `пуск`,
+        back: `Назад`,
+        tasks: `Завдання`,
+        items: `елем.`,
+        drive: `Відкрити Google Drive`,
+        off: `Завершення роботи`,
+        lang: `Мова: English`,
+        ok: `ОК`,
+        loading: `Завантаження...`,
+        fail: `Не вдалося завантажити папку.`,
+        empty: `Ця папка порожня.`,
+        boot: `Натисни, щоб почати`,
+        safe: `Тепер можна закрити цю вкладку.`,
+        again: `Натисни, щоб перезапустити`
+    }
+};
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* {
+  box-sizing:border-box
+}
+
+html,body {
+  margin:0;
+  height:100%;
+  overflow:hidden;
+  font:14px/1.2 "Pixelify Sans",Tahoma,sans-serif;
+  user-select:none;
+  -webkit-font-smoothing:none
+}
+
+#desk {
+  position:fixed;
+  inset:0 0 30px 0;
+  background:linear-gradient(#ffffff0a 1px,#0000 1px) 0 0/32px 32px,linear-gradient(90deg,#ffffff0a 1px,#0000 1px) 0 0/32px 32px,radial-gradient(ellipse at 50% 130%,#4a7fb8,#1c3a5e 55%,#0a1424)
+}
+
+#desk:before {
+  content:"Portfolio XP Professional\A Build 2600.xpsp_sp3";
+  white-space:pre;
+  position:absolute;
+  right:16px;
+  bottom:10px;
+  text-align:right;
+  color:#ffffffa0;
+  font-size:13px;
+  line-height:1.3;
+  text-shadow:1px 1px #000
+}
+
+body:after {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:100000;
+  background:repeating-linear-gradient(#0000 0 2px,#0000000f 2px 3px)
+}
+
+#icons {
+  position:absolute;
+  top:10px;
+  left:10px;
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  height:calc(100% - 20px);
+  gap:8px;
+  align-content:flex-start
+}
+
+.ic {
+  width:84px;
+  text-align:center;
+  color:#fff;
+  text-shadow:1px 1px 2px #000;
+  cursor:pointer;
+  padding:4px;
+  border:1px solid transparent
+}
+
+.sv {
+  flex:none;
+  vertical-align:middle;
+  image-rendering:pixelated
+}
+
+.ic .sv {
+  display:block;
+  margin:0 auto 4px
+}
+
+.ic:hover,.ic:focus {
+  background:#316ac580;
+  border-color:#9bf;
+  outline:0
+}
+
+.win {
+  position:fixed;
+  background:#ece9d8;
+  border:3px solid #0054e3;
+  border-top:0;
+  border-radius:8px 8px 0 0;
+  display:flex;
+  flex-direction:column;
+  box-shadow:2px 2px 0 #0008;
+  animation:op .18s ease-out;
+  min-width:240px
+}
+
+@keyframes op {
+  from {
+    opacity:0
+  }
+}
+
+.win.cls {
+  animation:cx .15s forwards
+}
+
+@keyframes cx {
+  to {
+    transform:scale(.9);
+    opacity:0
+  }
+}
+
+.win.min {
+  display:none
+}
+
+.win.max {
+  inset:0 0 30px 0!important;
+  width:auto!important;
+  height:auto!important;
+  border-radius:0
+}
+
+.tb {
+  height:30px;
+  display:flex;
+  align-items:center;
+  gap:3px;
+  padding:0 4px 0 6px;
+  color:#fff;
+  font-weight:700;
+  font-size:13px;
+  text-shadow:1px 1px #0008;
+  border-radius:8px 8px 0 0;
+  background:linear-gradient(#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7);
+  touch-action:none
+}
+
+.tb b {
+  flex:1;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis
+}
+
+.tb button {
+  width:22px;
+  height:22px;
+  border:1px solid #fff;
+  border-radius:4px;
+  color:#fff;
+  font-weight:700;
+  background:linear-gradient(#3d8bff,#1259e0);
+  cursor:pointer;
+  padding:0
+}
+
+.tb .x {
+  background:linear-gradient(#e8785a,#c2381b)
+}
+
+.body {
+  flex:1;
+  overflow:auto;
+  background:#fff;
+  margin:0;
+  min-height:0;
+  display:flex;
+  flex-direction:column
+}
+
+.bar2 {
+  display:flex;
+  gap:6px;
+  padding:4px;
+  background:#ece9d8;
+  border-bottom:1px solid #aca899
+}
+
+.bar2 button,.btn {
+  font:13px "Pixelify Sans",Tahoma;
+  border:1px solid #003c74;
+  border-radius:3px;
+  background:linear-gradient(#fff,#ecebe5 85%,#d6d0c5);
+  padding:2px 10px;
+  cursor:pointer
+}
+
+.bar2 button:active,.btn:active {
+  background:#d6d0c5
+}
+
+.addr {
+  flex:1;
+  background:#fff;
+  border:1px solid #7f9db9;
+  padding:3px 6px;
+  overflow:hidden;
+  white-space:nowrap
+}
+
+.ex {
+  flex:1;
+  display:flex;
+  min-height:0
+}
+
+.side {
+  width:150px;
+  padding:10px;
+  background:linear-gradient(#7ba2e7,#6375d6);
+  color:#fff;
+  flex:none
+}
+
+.side h4 {
+  margin:0 0 8px;
+  background:#fff;
+  color:#215dc6;
+  padding:4px 6px;
+  border-radius:4px 4px 0 0
+}
+
+.side a {
+  color:#fff;
+  display:block;
+  margin-top:8px
+}
+
+.grid {
+  flex:1;
+  padding:8px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  align-content:flex-start;
+  overflow:auto
+}
+
+.it {
+  width:92px;
+  text-align:center;
+  padding:4px;
+  cursor:pointer;
+  border:1px solid transparent;
+  word-break:break-word;
+  height:fit-content
+}
+
+.it:hover {
+  background:#d6e4fa;
+  border-color:#7aa7e8
+}
+
+.it .ico {
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:44px
+}
+
+.it img {
+  max-width:88px;
+  max-height:64px;
+  border:2px solid #fff;
+  box-shadow:0 0 0 1px #888
+}
+
+.ph {
+  width:80px;
+  height:60px;
+  background:repeating-linear-gradient(45deg,#cfe0ff,#cfe0ff 6px,#e6efff 6px,#e6efff 12px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  border:1px solid #7aa7e8
+}
+
+.pl {
+  padding:6px;
+  background:#ece9d8;
+  border-top:1px solid #aca899;
+  display:none
+}
+
+.pl audio {
+  width:100%
+}
+
+.view {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  background:#333;
+  padding:8px
+}
+
+.view img {
+  max-width:100%;
+  max-height:100%
+}
+
+.txt {
+  padding:14px;
+  line-height:1.5;
+  font-size:13px
+}
+
+.txt h2 {
+  margin:0 0 8px;
+  color:#215dc6
+}
+
+.txt .plain {
+  margin:6px 0;
+  user-select:text;
+  color:#000
+}
+
+.txt a {
+  color:#0b3fc1;
+  display:block;
+  margin:6px 0
+}
+
+.pt {
+  padding:4px;
+  display:flex;
+  gap:4px;
+  align-items:center;
+  background:#ece9d8
+}
+
+.pt i {
+  width:20px;
+  height:20px;
+  border:2px inset #fff;
+  cursor:pointer
+}
+
+canvas {
+  background:#fff;
+  touch-action:none;
+  cursor:crosshair;
+  max-width:100%
+}
+
+#bar {
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:30px;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(#3168d5,#4993e6 8%,#245edb 20%,#245edb 85%,#1941a5);
+  z-index:9999
+}
+
+#st {
+  height:30px;
+  padding:0 22px 0 12px;
+  border:0;
+  border-radius:0 14px 14px 0;
+  font:600 17px "Pixelify Sans",Tahoma;
+  color:#fff;
+  text-shadow:1px 1px 2px #000;
+  cursor:pointer;
+  background:linear-gradient(#5fb85f,#3c9a3c 20%,#2f8a2f 80%,#256e25);
+  box-shadow:inset -2px 0 4px #0005
+}
+
+#st:hover {
+  filter:brightness(1.1)
+}
+
+#tasks {
+  flex:1;
+  display:flex;
+  gap:3px;
+  padding:0 6px;
+  overflow:hidden
+}
+
+.task {
+  max-width:150px;
+  flex:1;
+  height:24px;
+  border:1px solid #0b3a9e;
+  border-radius:3px;
+  color:#fff;
+  background:#3c81f3;
+  cursor:pointer;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  font:13px "Pixelify Sans",Tahoma
+}
+
+.task.on {
+  background:#1e52b7;
+  box-shadow:inset 1px 1px 3px #0008
+}
+
+#tray {
+  height:30px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 12px;
+  color:#fff;
+  background:linear-gradient(#0f9bf0,#0c83dc);
+  border-left:1px solid #0a4aa8
+}
+
+#lang {
+  border:1px solid #fff;
+  border-radius:3px;
+  background:#1259e0;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer
+}
+
+#sm {
+  position:fixed;
+  left:0;
+  bottom:30px;
+  width:300px;
+  background:#fff;
+  border:2px solid #0a4aa8;
+  border-radius:8px 8px 0 0;
+  z-index:9998;
+  display:none;
+  overflow:hidden;
+  animation:op .15s
+}
+
+#sm.on {
+  display:block
+}
+
+#sm h3 {
+  margin:0;
+  padding:10px;
+  color:#fff;
+  font-size:16px;
+  text-shadow:1px 1px #000;
+  background:linear-gradient(#1868d8,#2d7ae8)
+}
+
+#sm div {
+  padding:8px 12px;
+  cursor:pointer;
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  gap:8px
+}
+
+#sm div:hover {
+  background:#316ac5;
+  color:#fff
+}
+
+#sm footer {
+  background:#0a4aa8;
+  padding:4px
+}
+
+#sm footer div {
+  color:#fff;
+  display:inline-block
+}
+
+#boot,#off {
+  position:fixed;
+  inset:0;
+  background:#000;
+  color:#fff;
+  z-index:99999;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  cursor:pointer;
+  font-size:14px;
+  transition:opacity .6s
+}
+
+#boot h1 {
+  margin:0;
+  font:600 44px "Pixelify Sans";
+  letter-spacing:1px
+}
+
+#boot h1 span {
+  color:#f60
+}
+
+.pb {
+  width:180px;
+  height:14px;
+  border:2px solid #aaa;
+  border-radius:5px;
+  overflow:hidden;
+  padding:1px
+}
+
+.pb i {
+  display:block;
+  width:50px;
+  height:100%;
+  background:repeating-linear-gradient(90deg,#2a6fe0 0 9px,transparent 9px 12px);
+  animation:ld 1.1s linear infinite
+}
+
+@keyframes ld {
+  from {
+    margin-left:-50px
+  }
+  to {
+    margin-left:180px
+  }
+}
+
+#off {
+  display:none;
+  background:#5a7edc
+}
+
+@media(max-width:700px) {
+  .win {
+    inset:0 0 30px 0!important;
+    width:auto!important;
+    height:auto!important;
+    border-radius:0
+  }
+  .side {
+    display:none
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  * {
+    animation:none!important
+  }
+}
+
+.ld {
+  width:100%;
+  margin:auto;
+  padding:30px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  color:#333
+}
+
+#bal {
+  display:none;
+  position:fixed;
+  right:10px;
+  bottom:38px;
+  width:240px;
+  background:#ffffe1;
+  border:1px solid #000;
+  border-radius:8px;
+  padding:10px 12px;
+  z-index:9998;
+  cursor:pointer;
+  color:#000;
+  animation:op .3s
+}
+
+#bal:after {
+  content:"";
+  position:absolute;
+  right:30px;
+  bottom:-9px;
+  border:8px solid transparent;
+  border-top-color:#000;
+  border-bottom:0
+}
+
+#bal b {
+  display:block;
+  margin-bottom:4px
+}
+
+.txt h2:after {
+  content:"_";
+  animation:bl 1s steps(1) infinite
+}
+
+@keyframes bl {
+  50% {
+    opacity:0
+  }
+}
+
+.it:hover .ico {
+  transform:translateY(-3px)
+}
+
+.it:active {
+  transform:translateY(1px)
+}
+
+.it img {
+  background:#fff;
+  padding:2px
+}
+
+#desk {
+  background:radial-gradient(ellipse 60% 14% at 18% 22%,#fffc,#fff0),radial-gradient(ellipse 40% 10% at 70% 14%,#fffb,#fff0),radial-gradient(ellipse 120% 55% at 20% 118%,#5fb832 0 58%,#0000 59%),radial-gradient(ellipse 110% 45% at 95% 122%,#3f9a22 0 58%,#0000 59%),linear-gradient(#1c63d6,#5da2ec 55%,#a9d6fa)
+}
+
+#desk:before {
+  color:#fffd
+}
+
+body:before {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:100000;
+  background:radial-gradient(ellipse at center,#0000 60%,#0007 135%)
+}
+
+body:after {
+  background:repeating-linear-gradient(#0000 0 2px,#00000014 2px 3px);
+  animation:fl 7s infinite
+}
+
+@keyframes fl {
+  0%,100% {
+    opacity:1
+  }
+  50% {
+    opacity:.8
+  }
+  52% {
+    opacity:1
+  }
+}
+
+.sv {
+  image-rendering:auto
+}
+
+.ic .sv {
+  filter:drop-shadow(1px 2px 2px #0008)
+}
+
+.ic {
+  border-radius:3px
+}
+
+.ic:hover,.ic:focus {
+  background:#316ac5a0;
+  border:1px dotted #fff
+}
+
+.win {
+  border:4px solid #0831d9;
+  border-top:0;
+  border-radius:9px 9px 0 0;
+  box-shadow:3px 5px 14px #0008
+}
+
+.tb {
+  height:32px;
+  font-size:14px;
+  box-shadow:inset 0 1px 0 #fff7,inset 0 -1px 0 #0003
+}
+
+.tb button {
+  width:22px;
+  height:22px;
+  border-radius:4px;
+  background:radial-gradient(circle at 30% 25%,#7fb3ff,#2a62e0 70%);
+  box-shadow:inset 0 0 2px #fff8
+}
+
+.tb .x {
+  background:radial-gradient(circle at 30% 25%,#f3a58f,#d2431f 70%)
+}
+
+.tb button:hover {
+  filter:brightness(1.12)
+}
+
+.bar2 {
+  background:linear-gradient(#f6f4ec,#e3dfcf);
+  padding:5px
+}
+
+.addr {
+  border-radius:2px;
+  box-shadow:inset 1px 1px 2px #0002
+}
+
+.side {
+  background:linear-gradient(#7ba2e7,#6375d6 60%,#5a69c8)
+}
+
+.side h4 {
+  background:linear-gradient(90deg,#fff,#c6d3f7);
+  border-radius:5px 5px 0 0
+}
+
+.grid {
+  gap:8px
+}
+
+.it {
+  border-radius:2px;
+  color:#000
+}
+
+.it:hover {
+  background:#316ac5;
+  border-color:#316ac5;
+  color:#fff
+}
+
+.it:hover img {
+  border-color:#316ac5
+}
+
+#bar {
+  background:linear-gradient(#3a85f0,#245edb 10%,#245edb 80%,#1c47b0);
+  border-top:1px solid #4d95f5;
+  box-shadow:0 -1px 0 #0a2f8a
+}
+
+#st {
+  font-style:italic;
+  font-weight:700;
+  text-shadow:1px 1px 2px #0008;
+  padding:0 26px 0 14px;
+  box-shadow:inset -2px 0 4px #0005,inset 0 2px 3px #fff6,2px 0 4px #0006
+}
+
+#st:before {
+  content:"";
+  display:inline-block;
+  width:17px;
+  height:17px;
+  margin-right:7px;
+  vertical-align:-4px;
+  transform:skewY(-6deg);
+  background:linear-gradient(#f25022,#f25022) 0 0/8px 8px,linear-gradient(#7fba00,#7fba00) 9px 0/8px 8px,linear-gradient(#00a4ef,#00a4ef) 0 9px/8px 8px,linear-gradient(#ffb900,#ffb900) 9px 9px/8px 8px;
+  background-repeat:no-repeat
+}
+
+.task {
+  border-radius:3px;
+  background:linear-gradient(#5b9bf6,#3c81f3)
+}
+
+.task.on {
+  background:#1e52b7
+}
+
+#tray {
+  background:linear-gradient(#1290e8,#0f7fd8 15%,#0c6fc8);
+  border-left:1px solid #0a4aa8;
+  box-shadow:inset 1px 0 0 #3cb0ff
+}
+
+#sm {
+  border-radius:8px 8px 0 0;
+  box-shadow:3px -3px 12px #0008
+}
+
+#sm h3 {
+  border-bottom:2px solid #f6a52d;
+  font-size:17px;
+  padding:12px
+}
+
+#sm footer {
+  background:linear-gradient(#2a6fe0,#0a4aa8)
+}
+
+#bal {
+  border-radius:8px;
+  box-shadow:2px 3px 8px #0006
+}
+</style>
+</head>
+<body>
+
+<div id="boot"><h1>Portfolio<span>XP</span></h1><div class="pb"><i></i></div><small id="bt"></small></div>
+
+<div id="off"><div style="font-size:20px">:)</div><div id="om"></div></div>
+
+<div id="desk"><div id="icons"></div></div>
+<div id="bal"></div><div id="sm"></div>
+
+<div id="bar"><button id="st"></button><div id="tasks"></div><div id="tray"><button id="lang"></button><span id="clk"></span></div></div>
+<script>
+const CFG = {
+    owner: '', repo: '', branch: 'HEAD', driveKey: '',
+    voice: {
+        dirs: ['voice', 'озвучка'], drive: ''
+    },
+    art: {
+        dirs: ['art', 'drawings', 'малюнки'], drive: ''
+    }
+};
+
+const EXT = {
+    art: /\.(jpe?g|png|gif|webp|svg|avif)$/i, voice: /\.(mp3|wav|ogg|m4a|flac|aac)$/i
+};
+const bn = x => {
+    const p = x.split(/\||~/).map(v => v.trim());
+    return [p[0], p[1] || p[0]];
+};
+
+function repoInfo() {
+    let o = CFG.owner, r = CFG.repo;
+    if (!o) {
+        const h = location.hostname;
+        if (h.endsWith('.github.io')) {
+            o = h.split('.')[0];
+            r = location.pathname.split('/')[1] || h;
+        }
+    }
+    return [o, r];
+}
+let TREE;
+
+function getTree() {
+    return TREE || (TREE = (() => {
+        const [o, r] = repoInfo();
+        return fetch(`https://api.github.com/repos/${o}/${r}/git/trees/${CFG.branch}?recursive=1`).then(x => x.json()).then(j => {
+            if (!j.tree)
+                throw 0;
+            const a = j.tree.filter(e => e.type == 'blob').map(e => e.path);
+            try {
+                sessionStorage.setItem('tree', JSON.stringify(a));
+            }
+            catch (e) {
+            }
+            return a;
+        }).catch(e => {
+            try {
+                const c = sessionStorage.getItem('tree');
+                if (c)
+                    return JSON.parse(c);
+            }
+            catch (_) {
+            }
+            throw e;
+        });
+    })());
+}
+
+function fromPaths(paths, dirs, kind) {
+    const top = { kids: [] };
+    paths.forEach(p => {
+        const s = p.split('/');
+        if (s.length < 2 || !dirs.includes(s[0].toLowerCase()))
+            return;
+        let n = top;
+        s.slice(1, -1).forEach(d => {
+            let c = n.kids.find(k => k.key == d);
+            if (!c)
+                n.kids.push(c = {
+                    key: d, n: bn(d), kids: []
+                });
+            n = c;
+        });
+        const f = s[s.length - 1];
+        if (EXT[kind].test(f))
+            n.kids.push({
+                n: bn(f.replace(/\.[^.]+$/, '')), src: encodeURI(p)
+            });
+    });
+    const so = n => {
+        n.kids.sort((x, y) => (!!y.kids - !!x.kids) || x.n[0].localeCompare(y.n[0], undefined, { numeric: true }));
+        n.kids.forEach(k => k.kids && so(k));
+    };
+    so(top);
+    return top.kids;
+}
+
+async function drive(id, kind) {
+    const u = `https://www.googleapis.com/drive/v3/files?pageSize=1000&orderBy=folder,name&fields=files(id,name,mimeType)&key=${CFG.driveKey}&q=${encodeURIComponent(`'${id}' in parents and trashed=false`)}`;
+    const j = await (await fetch(u)).json();
+    if (!j.files)
+        throw 0;
+    return j.files.flatMap(f => {
+        const n = bn(f.name.replace(/\.[^.]+$/, ''));
+        if (f.mimeType == 'application/vnd.google-apps.folder') {
+            const o = {
+                n: bn(f.name), kids: null
+            };
+            o.load = async () => {
+                o.kids = await drive(f.id, kind);
+            };
+            return [o];
+        }
+        if (kind == 'art' && f.mimeType.startsWith('image/'))
+            return [{
+                    n, src: `https://drive.google.com/thumbnail?id=${f.id}&sz=w1600`
+                }];
+        if (kind == 'voice' && f.mimeType.startsWith('audio/'))
+            return [{
+                    n, gid: f.id
+                }];
+        return [];
+    });
+}
+
+function root(n, kind) {
+    const c = CFG[kind], o = {
+        n, kids: null
+    };
+    o.load = async () => {
+        let k = [];
+        try {
+            k = fromPaths(await getTree(), c.dirs, kind);
+        }
+        catch (e) {
+            if (!(c.drive && CFG.driveKey))
+                throw e;
+        }
+        if (c.drive && CFG.driveKey)
+            k = k.concat(await drive(c.drive, kind));
+        o.kids = k;
+    };
+    return o;
+}
+
+const ART = root(['My Drawings', 'Мої малюнки'], 'art'), VOICE = root(['Voice Reel', 'Озвучка'], 'voice');
+document.body.insertAdjacentHTML('afterbegin', '<svg width="0" height="0" style="position:absolute"><defs><linearGradient id="gF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset="1" stop-color="#e9b73a"/></linearGradient><linearGradient id="gB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fc0ff"/><stop offset="1" stop-color="#2a62d0"/></linearGradient><linearGradient id="gS" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset=".6" stop-color="#b9c4d4"/><stop offset="1" stop-color="#7d8aa0"/></linearGradient><linearGradient id="gK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb7ff"/><stop offset="1" stop-color="#d9efff"/></linearGradient><radialGradient id="gR" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ff9a86"/><stop offset="1" stop-color="#c2260e"/></radialGradient></defs></svg>');
+
+const P = {
+    folder: '<path d="M2 8h9l2 3h17v16H2z" fill="#d9a21f"/><path d="M2 13h28v14H2z" fill="url(#gF)" stroke="#a8761a" stroke-width=".8"/><path d="M3 14h26" stroke="#fff9d8" stroke-width="1.2"/>',
+    art: '<rect x="3" y="5" width="26" height="21" rx="1.5" fill="#fff" stroke="#5a7bb5"/><rect x="5" y="7" width="22" height="17" fill="url(#gK)"/><path d="M5 24v-5l6-5 5 4 4-3 7 5v4z" fill="#3a9a2a"/><circle cx="21" cy="12" r="2.6" fill="#ffd84a"/>',
+    voice: '<rect x="12" y="3" width="8" height="15" rx="4" fill="url(#gS)" stroke="#5a6678"/><path d="M8 14a8 8 0 0 0 16 0M16 22v5M11 28h10" fill="none" stroke="#5a6678" stroke-width="2" stroke-linecap="round"/><path d="M14 7v7" stroke="#fff" stroke-width="1.5"/>',
+    about: '<circle cx="16" cy="10" r="5.5" fill="#f6cfa4" stroke="#b07a4a"/><path d="M5 29c0-8 5-11 11-11s11 3 11 11z" fill="url(#gB)" stroke="#1d4fb8"/>',
+    contact: '<rect x="3" y="7" width="26" height="18" rx="1.5" fill="#fffbe8" stroke="#5a7bb5"/><path d="M3 8l13 10L29 8" fill="none" stroke="#5a7bb5" stroke-width="1.5"/>',
+    paint: '<path d="M16 4C8 4 3 9 3 15c0 6 5 12 10 12 3 0 3-3 5-3s6 2 9-2c3-4 2-9-2-13-2-3-5-5-9-5z" fill="#f6e3b4" stroke="#a8801f"/><circle cx="10" cy="13" r="2.4" fill="#e03020"/><circle cx="15" cy="8.5" r="2.4" fill="#2a5bd7"/><circle cx="21" cy="10" r="2.4" fill="#2a9d3a"/><circle cx="24" cy="16" r="2.4" fill="#f0c020"/><circle cx="14" cy="21" r="2.6" fill="#ece9d8" stroke="#a8801f" stroke-width=".8"/>',
+    bin: '<path d="M8 10h16l-2 18H10z" fill="url(#gS)" stroke="#667389"/><rect x="6" y="6" width="20" height="4" rx="1" fill="#d5dde8" stroke="#667389"/><path d="M13 13v12M16 13v12M19 13v12" stroke="#7d8aa0"/>',
+    img: '<rect x="3" y="5" width="26" height="21" rx="1.5" fill="#fff" stroke="#5a7bb5"/><rect x="5" y="7" width="22" height="17" fill="url(#gK)"/><path d="M5 24v-5l6-5 5 4 4-3 7 5v4z" fill="#3a9a2a"/>',
+    wav: '<path d="M7 3h13l6 6v20H7z" fill="#fff" stroke="#5a7bb5"/><path d="M20 3v6h6" fill="#dbe6fb" stroke="#5a7bb5"/><g stroke="#2a62d0" stroke-width="2" stroke-linecap="round"><path d="M11 18v4M14 15v10M17 12v16M20 16v8M23 19v2"/></g>',
+    err: '<circle cx="16" cy="16" r="13" fill="url(#gR)" stroke="#fff" stroke-width="2"/><path d="M10.5 10.5l11 11M21.5 10.5l-11 11" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>'
+};
+
+const FN = {
+    wav: 'audio', img: 'image', err: 'error'
+}, XT = ['png', 'webp', 'svg', 'ico'], OK = {}, MISS = {};
+
+const SV = (k, s) => `<svg class="sv" width="${s}" height="${s}" viewBox="0 0 32 32">${P[k]}</svg>`;
+
+const I = (k, s = 32) => {
+    if (MISS[k])
+        return SV(k, s);
+    const e = OK[k] || 'png';
+    return `<img class="sv" alt="" width="${s}" height="${s}" src="icons/${FN[k] || k}.${e}" data-k="${k}" data-e="${XT.indexOf(e)}" data-s="${s}" onload="OK[this.dataset.k]=XT[this.dataset.e]" onerror="icoFail(this)">`;
+};
+
+function icoFail(e) {
+    const k = e.dataset.k, n = +e.dataset.e + 1;
+    if (n < XT.length) {
+        e.dataset.e = n;
+        e.src = `icons/${FN[k] || k}.${XT[n]}`;
+    }
+    else {
+        MISS[k] = 1;
+        e.outerHTML = SV(k, e.dataset.s);
+    }
+}
+const bad = e => e.outerHTML = `<div class="ph">${I('img', 32)}</div>`;
+let L = 'en';
+try {
+    L = localStorage.getItem('lang') || 'en';
+}
+catch (e) {
+}
+const t = k => T[L][k].trim().replace(/\n/g, '<br>'), nm = o => o.n[L == 'uk' ? 1 : 0], $ = s => document.querySelector(s), tx = (s, v) => {
+    const e = document.querySelector(s);
+    if (e)
+        e.textContent = v;
+};
+
+const W = {};
+let z = 10;
+
+function focus(id) {
+    Object.values(W).forEach(w => w.btn.classList.remove('on'));
+    const w = W[id];
+    w.el.style.zIndex = ++z;
+    w.btn.classList.add('on');
+}
+
+function refresh(id) {
+    const w = W[id];
+    if (!w)
+        return;
+    const s = w.title(), b = w.el.querySelector('.tb b'), bd = w.el.querySelector('.body');
+    if (b)
+        b.textContent = s;
+    w.btn.textContent = s;
+    if (!w.st && bd)
+        w.render(bd);
+}
+
+function win(id, ic, title, render, w = 560, h = 400, st) {
+    if (W[id]) {
+        W[id].el.classList.remove('min');
+        focus(id);
+        return;
+    }
+    const n = Object.keys(W).length, el = document.createElement('div');
+    el.className = 'win';
+    el.style.cssText = `width:${w}px;height:${h}px;left:${40 + n * 26}px;top:${24 + n * 26}px`;
+    el.innerHTML = `<div class="tb">${I(ic, 16)}<b></b><button class="mn">_</button><button class="mx">□</button><button class="x">✕</button></div><div class="body"></div>`;
+    document.body.appendChild(el);
+    const btn = document.createElement('button');
+    btn.className = 'task';
+    $('#tasks').appendChild(btn);
+    W[id] = {
+        el, btn, title, render, st
+    };
+    refresh(id);
+    focus(id);
+    const tb = el.querySelector('.tb');
+    el.onpointerdown = () => focus(id);
+    btn.onclick = () => {
+        if (el.classList.contains('min') || !btn.classList.contains('on')) {
+            el.classList.remove('min');
+            focus(id);
+        }
+        else
+            el.classList.add('min'), btn.classList.remove('on');
+    };
+    el.querySelector('.mn').onclick = () => {
+        el.classList.add('min');
+        btn.classList.remove('on');
+    };
+    el.querySelector('.mx').onclick = () => el.classList.toggle('max');
+    tb.ondblclick = e => {
+        if (e.target.tagName != 'BUTTON')
+            el.classList.toggle('max');
+    };
+    el.querySelector('.x').onclick = () => {
+        el.classList.add('cls');
+        setTimeout(() => {
+            el.remove();
+            btn.remove();
+            delete W[id];
+        }, 140);
+    };
+    tb.onpointerdown = e => {
+        if (e.target.tagName == 'BUTTON' || el.classList.contains('max'))
+            return;
+        const r = el.getBoundingClientRect(), dx = e.clientX - r.left, dy = e.clientY - r.top;
+        tb.setPointerCapture(e.pointerId);
+        tb.onpointermove = v => {
+            el.style.left = v.clientX - dx + 'px';
+            el.style.top = Math.max(0, v.clientY - dy) + 'px';
+        };
+        tb.onpointerup = () => tb.onpointermove = null;
+    };
+}
+
+function explorer(id, ic, root, art) {
+    let path = [root];
+    win(id, ic, () => nm(root), b => {
+        const cur = path[path.length - 1];
+        if (!cur.kids) {
+            b.innerHTML = `<div class="ld">${t('loading')}<div class="pb"><i></i></div></div>`;
+            Promise.resolve().then(() => cur.load()).catch(() => {
+                cur.err = 1;
+                cur.kids = [];
+            }).then(() => {
+                if (W[id])
+                    W[id].render(b);
+            });
+            return;
+        }
+        b.innerHTML = `<div class="bar2"><button class="bk">◀ ${t('back')}</button><div class="addr">${I(ic, 14)} ${path.map(nm).join(' › ')}</div></div><div class="ex"><div class="side"><h4>${t('tasks')}</h4>${cur.kids.length} ${t('items')}${DRIVE && !art ? `<a href="${DRIVE}" target="_blank">${t('drive')}</a>` : ''}</div><div class="grid"></div></div><div class="pl"></div>`;
+        b.querySelector('.bk').onclick = () => {
+            if (path.length > 1) {
+                path.pop();
+                W[id].render(b);
+            }
+        };
+        const g = b.querySelector('.grid');
+        if (!cur.kids.length)
+            g.innerHTML = `<div class="ld">${cur.err ? t('fail') : t('empty')}</div>`;
+        cur.kids.forEach(f => {
+            const d = document.createElement('div');
+            d.className = 'it';
+            const ico = 'kids' in f ? I('folder', 48) : art ? `<img src="${f.src}" alt="" loading="lazy" onerror="bad(this)">` : I('wav', 48);
+            d.innerHTML = `<div class="ico">${ico}</div>${nm(f)}`;
+            d.onclick = () => {
+                if ('kids' in f) {
+                    path.push(f);
+                    W[id].render(b);
+                }
+                else if (art)
+                    win('img' + f.src, 'img', () => nm(f), v => v.innerHTML = `<div class="view"><img src="${f.src}" onerror="bad(this)"></div>`, 480, 420);
+                else {
+                    const p = b.querySelector('.pl');
+                    p.style.display = 'block';
+                    p.innerHTML = f.gid ? `${nm(f)}<br><iframe src="https://drive.google.com/file/d/${f.gid}/preview" style="width:100%;height:90px;border:0"></iframe>` : `${I('wav', 16)} ${nm(f)}<br><audio controls autoplay src="${f.src}"></audio>`;
+                }
+            };
+            g.appendChild(d);
+        });
+    }, 620, 420);
+}
+
+const APPS = [
+    ['art', 'art', () => explorer('art', 'art', ART, 1)],
+    ['voice', 'voice', () => explorer('voice', 'voice', VOICE)],
+    ['about', 'about', () => win('about', 'about', () => t('about'), b => b.innerHTML = `<div class="txt"><h2>${NAME}</h2>${t('bio')}</div>`, 420, 300)],
+    ['contact', 'contact', () => win('contact', 'contact', () => t('contact'), b => b.innerHTML = `<div class="txt"><h2>${t('contact')}</h2>${LINKS.map(l => (l[1] && l[1].trim() && l[1].trim() != '#' ? `<a href="${l[1]}" target="_blank">▸ ${l[0]}</a>` : `<div class="plain">▸ ${l[0]}</div>`)).join('')}</div>`, 340, 260)],
+    ['bin', 'bin', () => win('err', 'err', () => 'Error', b => b.innerHTML = `<div class="txt">${I('err', 32)} ${t('binmsg')}<br><br><button class="btn" onclick="this.closest('.win').querySelector('.x').click()">${t('ok')}</button></div>`, 340, 190)]
+];
+
+function build() {
+    $('#icons').innerHTML = '';
+    APPS.forEach(a => {
+        const d = document.createElement('div');
+        d.className = 'ic';
+        d.tabIndex = 0;
+        d.innerHTML = `${I(a[1], 40)}${t(a[0])}`;
+        d.ondblclick = a[2];
+        d.onkeydown = e => e.key == 'Enter' && a[2]();
+        d.onclick = e => {
+            if (matchMedia('(pointer:coarse)').matches)
+                a[2]();
+        };
+        $('#icons').appendChild(d);
+    });
+    $('#sm').innerHTML = `<h3>${NAME}</h3>${APPS.slice(0, 4).map((a, i) => `<div data-i="${i}">${I(a[1], 24)}${t(a[0])}</div>`).join('')}<footer><div data-l>${t('lang')}</div><div data-o>${t('off')}</div></footer>`;
+    tx('#st', t('start'));
+    tx('#lang', L == 'uk' ? 'УКР' : 'EN');
+    tx('#bt', t('boot'));
+    $('#bal').innerHTML = `<b>${t('balT')}</b>${t('balM')}`;
+    document.documentElement.lang = L;
+    tick();
+}
+
+function setLang(l) {
+    L = l;
+    try {
+        localStorage.setItem('lang', l);
+    }
+    catch (e) {
+    }
+    build();
+    Object.keys(W).forEach(refresh);
+}
+
+function tick() {
+    tx('#clk', new Date().toLocaleTimeString(L == 'uk' ? 'uk-UA' : 'en-US', {
+        hour: '2-digit', minute: '2-digit'
+    }));
+}
+
+$('#lang').onclick = () => setLang(L == 'en' ? 'uk' : 'en');
+
+$('#bal').onclick = e => e.currentTarget.style.display = 'none';
+
+$('#st').onclick = e => {
+    e.stopPropagation();
+    $('#sm').classList.toggle('on');
+};
+document.onclick = e => $('#sm').classList.remove('on');
+
+$('#sm').onclick = e => {
+    const d = e.target.closest('div');
+    if (!d)
+        return;
+    if (d.dataset.i != null)
+        APPS[d.dataset.i][2]();
+    if ('l' in d.dataset)
+        setLang(L == 'en' ? 'uk' : 'en');
+    if ('o' in d.dataset) {
+        const o = $('#off');
+        o.style.display = 'flex';
+        o.innerHTML = `<div style="font-size:22px">${t('safe')}</div><small>${t('again')}</small>`;
+        o.onclick = () => location.reload();
+    }
+};
+
+$('#boot').onclick = () => {
+    if (window.bd)
+        return;
+    window.bd = 1;
+    $('#boot').style.opacity = 0;
+    setTimeout(() => {
+        $('#boot').remove();
+        APPS[2][2]();
+        setTimeout(() => {
+            $('#bal').style.display = 'block';
+            setTimeout(() => $('#bal').style.display = 'none', 9000);
+        }, 900);
+    }, 600);
+};
+setTimeout(() => $('#boot') && $('#boot').click(), 2800);
+setInterval(tick, 10000);
+build();
+</script>
+</body>
+</html>
